@@ -130,7 +130,7 @@ struct PortForwardManager: View {
 
     var table: some View {
         Table(selection: $selection, sortOrder: $sortOrder) {
-            TableColumn("Action") { data in
+            TableColumn("Action") { (data: RDPortForward) in
                 Button {
                     if backend.sessionExists(withPortForwardID: data.id) {
                         backend.endSession(withPortForwardID: data.id)
