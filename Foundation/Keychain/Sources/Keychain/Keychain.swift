@@ -1754,7 +1754,7 @@ extension Accessibility: RawRepresentable, CustomStringConvertible {
             case String(kSecAttrAccessibleAfterFirstUnlock):
                 self = .afterFirstUnlock
             #if !targetEnvironment(macCatalyst)
-                case String(kSecAttrAccessibleAlways):
+                case String(kSecAttrAccessibleAfterFirstUnlock):
                     self = .always
             #endif
             case String(kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly):
@@ -1764,7 +1764,7 @@ extension Accessibility: RawRepresentable, CustomStringConvertible {
             case String(kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly):
                 self = .afterFirstUnlockThisDeviceOnly
             #if !targetEnvironment(macCatalyst)
-                case String(kSecAttrAccessibleAlwaysThisDeviceOnly):
+                case String(kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly):
                     self = .alwaysThisDeviceOnly
             #endif
             default:
@@ -1802,7 +1802,7 @@ extension Accessibility: RawRepresentable, CustomStringConvertible {
             return String(kSecAttrAccessibleAfterFirstUnlock)
         #if !targetEnvironment(macCatalyst)
             case .always:
-                return String(kSecAttrAccessibleAlways)
+                return String(kSecAttrAccessibleAfterFirstUnlock)
         #endif
         case .whenPasscodeSetThisDeviceOnly:
             if #available(OSX 10.10, *) {
@@ -1816,7 +1816,7 @@ extension Accessibility: RawRepresentable, CustomStringConvertible {
             return String(kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly)
         #if !targetEnvironment(macCatalyst)
             case .alwaysThisDeviceOnly:
-                return String(kSecAttrAccessibleAlwaysThisDeviceOnly)
+                return String(kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly)
         #endif
         }
     }
